@@ -1,0 +1,29 @@
+<div class="z-depth-5 my-3 blue-grey-text" *ngIf="productdetail">
+    <h1>{{productdetail.productname}}</h1>
+    <div class="row">
+        <div class="col-5 w-100">
+            <img src="{{productdetail.url}}" alt="{{productdetail.productname}}" style="height: 300px;">
+        </div>
+        <div class="col-7">
+            <strong>List Price :</strong> {{productdetail.price | currency : 'VND'}} <br>
+            <strong>Discount :</strong>30% <br>
+            <strong>Your Price :</strong> {{productdetail.price}} <br>
+            <strong class="mr-2">Quantity:</strong>
+            <input min="1" [(ngModel)]="num" type="number">
+            <button class="btn ml-2 default-color-dark" (click)="addtocart(productdetail)">Add to cart</button>
+            
+            <br>
+            <h3><strong>Description</strong></h3>
+            <p>{{productdetail.description}}</p>
+            <p>New features</p>
+            <ul>
+                <li>{{productdetail.newfeature[0].text}}</li>
+                <li>{{productdetail.newfeature[1].text}}</li>
+                <li>{{productdetail.newfeature[2].text}}</li>
+            </ul>
+        </div>
+    </div>
+   <div class="mt-3 text-center">
+    <button class="btn default-color-dark w-100" (click)="back()">Back</button>
+   </div>
+</div>

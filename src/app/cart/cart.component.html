@@ -1,0 +1,29 @@
+<table mdbTable small="true" class="my-4">
+    <thead>
+      <tr>
+        <th>Item</th>
+        <th>Price</th>
+        <th>Quantity</th>
+        <th>Total</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr mdbTableCol *ngFor="let item of items">
+        <th scope="row">{{item.productname}}</th>
+        <td>{{item.price}}</td>
+        <td>{{quantity()}}</td>
+        <td>{{item.price * quantity()}}</td>
+      </tr>
+      <tr>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td>Total :</td>
+      </tr>
+    </tbody>
+    
+  </table>
+
+  <div>
+    <button (click)="clearcart()" class="btn btn-primary">Clear Cart</button>
+  </div>

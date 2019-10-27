@@ -1,0 +1,15 @@
+<div class="z-depth-5 my-3 blue-grey-text">
+    <div class="mt-2 " *ngFor="let product of products">
+        <div class="row">
+            <div class="col-sm-6">
+                <img src="{{product.url}}" class="img-fluid z-depth-2 rounded" alt="{{product.productname}}"
+                    style="width: 200px;height: 200px;">
+            </div>
+            <div class="col-sm-6">
+                <a routerLink="/product/{{product.id}}">{{product.productname}}</a> <br>
+                <strong>Your price: </strong> {{product.price | currency : 'VND'}} <br>
+                <p>{{product.description}}</p>
+            </div>
+        </div>
+    </div>
+</div>
