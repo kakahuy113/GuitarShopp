@@ -11,19 +11,23 @@
       <tr mdbTableCol *ngFor="let item of items">
         <th scope="row">{{item.productname}}</th>
         <td>{{item.price}}</td>
-        <td>{{quantity()}}</td>
-        <td>{{item.price * quantity()}}</td>
+        <td><input type="number" min="1" value="{{value[item.id]}}" disabled>
+          <button class="btn grey-text" (click)="up(item.id)">+</button>
+          <button class="btn brown-text" (click)="down(item.id)">-</button>
+          
+        </td>
+        <td>{{item.price* value[item.id]}}</td>
       </tr>
       <tr>
-        <td></td>
-        <td></td>
-        <td></td>
-        <td>Total :</td>
+        <td colspan="3"></td>
+        
+        <td><Strong>Total</Strong> :{{Total()}}</td>
       </tr>
     </tbody>
     
   </table>
 
   <div>
-    <button (click)="clearcart()" class="btn btn-primary">Clear Cart</button>
+    <a routerLink="/check-out" role="button" class="btn btn-primary">Check Out</a>
+    <button (click)="clearcart()" class="btn btn-primary float-right">Clear Cart</button>
   </div>

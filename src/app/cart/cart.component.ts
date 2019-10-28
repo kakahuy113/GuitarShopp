@@ -10,9 +10,8 @@ import { guitar } from '../models/guitar';
 })
 export class CartComponent implements OnInit {
 
-	items = [];
-	total = [];
-	temp;
+	items;
+	value = [];
 	constructor(
 		private route: ActivatedRoute,
 		private service: ProductService
@@ -20,15 +19,35 @@ export class CartComponent implements OnInit {
 	
 	ngOnInit() { 
 		this.items = this.service.getguitar();
-		this.total = this.service.getquantity();
+		this.items.forEach(guitar => {
+			this.value[guitar.id] = guitar.quantity
+		})
+		
 	}
 
-	quantity()  {
-		return this.total;
+	Total() {
+		let total = 0;
+		for(let item of this.items) {
+			total += item.price * this.value[item.id]
+		}
+		return total;
 	}
 
+	down(id) {
+		let i = this.value[id];
+		if(i > 0) {
+			--i
+		}
+		this.value[id] = i
+	}
 
-
+	up(id) {
+		let i = this.value[id];
+		if(i < 20) {
+			++i
+		}
+		this.value[id] = i;
+	}
 
 	clearcart() {
 		this.service.clearguitar();

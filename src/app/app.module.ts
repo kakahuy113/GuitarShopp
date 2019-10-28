@@ -13,7 +13,8 @@ import { CartComponent } from './cart/cart.component';
 import { FooterComponent } from './footer/footer.component';
 import { HomeComponent } from './home/home.component';
 import { CheckoutComponent } from './checkout/checkout.component';
-
+import { AngularFireModule } from '@angular/fire';
+import { environment } from '../environments/environment'
 @NgModule({
   declarations: [
     AppComponent,

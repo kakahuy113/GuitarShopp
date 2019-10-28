@@ -14,7 +14,7 @@ import { ProductService } from '../services/product.service';
 
 export class DetailProductComponent implements OnInit {
   productdetail;
-  num : number = 1;
+  quantity : number = 1;
   constructor(
     private http : HttpClient , 
     private route : ActivatedRoute,
@@ -32,9 +32,10 @@ export class DetailProductComponent implements OnInit {
     })
   }
   
-  addtocart(product ) {
+  addtocart() {
     window.alert('It has been add to cart');
-    this.service.addtocart(product , this.num);
+    let guitar = Object.assign(this.productdetail , {'quantity' : this.quantity})
+    this.service.addtocart(guitar);
   }
 
   getproduct(): Observable<guitar[]> {

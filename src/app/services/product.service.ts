@@ -2,34 +2,33 @@ import { Injectable } from '@angular/core';
 import { guitar } from '../models/guitar';
 import { HttpClient } from '@angular/common/http';
 import { Observable } from 'rxjs';
+import { Item } from '../models/items'
 @Injectable({
   providedIn: 'root'
 })
 export class ProductService {
-  private guitars =[];
-  private quantity =[]
+  public guitars =[];
+  
   constructor(private http : HttpClient) { 
     
   }
   
-  addtocart(product , index) {
+  addtocart(product : Item) {
     this.guitars.push(product);  
-    this.quantity.push(index);
   }
 
   getguitar() {
       return this.guitars;
   }
-  
-  
-  getquantity() {
-    return this.quantity;
-  }
+
+
+
+
 
   clearguitar() {
       this.guitars = [];
-      this.quantity = []
-      return this.guitars , this.quantity;
+    
+      return this.guitars;
   }
 
  
