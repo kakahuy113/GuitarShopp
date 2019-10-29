@@ -53,4 +53,14 @@ export class CartComponent implements OnInit {
 		this.service.clearguitar();
 		this.items = this.service.getguitar()
 	}
+	  
+	checkout() {
+		for(let item of this.items) {
+		  for(let itemcart of this.service.getguitar()) {
+			if(itemcart.id === item.id) {
+			  itemcart.quantity = this.value[item.id]
+			}
+		  }
+		}
+	  }
 }

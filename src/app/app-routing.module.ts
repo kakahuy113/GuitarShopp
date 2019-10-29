@@ -5,7 +5,7 @@ import { ProductComponent } from './product/product.component';
 import { HomeComponent } from './home/home.component';
 import { DetailProductComponent } from './detail-product/detail-product.component';
 import { CartComponent } from './cart/cart.component';
-import { CheckoutComponent } from './checkout/checkout.component'
+import { CheckoutComponent } from './checkout/checkout.component';
 const routes : Routes = [
   {path : '' , redirectTo : '/home' ,pathMatch : 'full'},
   {path : 'home' , component : HomeComponent } ,

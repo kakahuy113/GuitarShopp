@@ -28,6 +28,6 @@
   </table>
 
   <div>
-    <a routerLink="/check-out" role="button" class="btn btn-primary">Check Out</a>
+    <a routerLink="/check-out" (click)="checkout()" role="button" class="btn btn-primary">Check Out</a>
     <button (click)="clearcart()" class="btn btn-primary float-right">Clear Cart</button>
   </div>
